@@ -1,17 +1,30 @@
+import { useNavigate } from "react-router-dom";
+
 const CardProduct = ({ product }) => {
-  console.log(product);
+  const navigate = useNavigate();
+
+  const handleDetail = () => {
+    navigate(`/product/${product.id}`);
+  };
+
+  const handleAddCart = (e) => {
+    e.stopPropagation();
+  };
 
   return (
     <>
-      <article className="w-full min-w-[32rem] border border-solid border-gray-400 rounded-xl max-w-[33rem]">
-        <header className="relative border-b border-solid border-gray-400 aspect-square cursor-pointer group">
+      <article
+        onClick={handleDetail}
+        className="w-full min-w-[32rem] border border-solid border-gray-400 rounded-xl max-w-[33rem] cursor-pointer"
+      >
+        <header className="relative border-b border-solid border-gray-400 aspect-square group">
           <img
             className="w-full h-full object-contain opacity-100 group-hover:opacity-0 transition-opacity duration-700"
             src={product.images[0].url}
             alt=""
           />
           <img
-            className="absolute object-contain top-0 w-full h-full opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+            className="absolute object-contain top-0 w-full h-full opacity-0 group-hover:opacity-100 transition-opacity duration-700  "
             src={product.images[1].url}
             alt=""
           />
@@ -25,7 +38,10 @@ const CardProduct = ({ product }) => {
             <span className="font-light text-base">Price</span>
             <h3 className="font-medium text-2xl">{product.price}</h3>
           </div>
-          <button className="aspect-square w-16 justify-self-center text-2xl rounded-[50%] relative right-4 bg-red-600 text-white hover:brightness-110 top-8">
+          <button
+            onClick={handleAddCart}
+            className="aspect-square w-16 justify-self-center text-2xl rounded-[50%] relative right-4 bg-red-600 text-white hover:brightness-110 top-8"
+          >
             <i className="bx bx-cart-alt"></i>
           </button>
         </section>
