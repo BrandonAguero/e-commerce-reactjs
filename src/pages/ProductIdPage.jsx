@@ -2,6 +2,8 @@ import { useParams } from "react-router-dom";
 import useFetch from "../hooks/useFetch.js";
 import { useEffect } from "react";
 import ProductInfo from "../components/ProductId/ProductInfo.jsx";
+import SimilarProducts from "../components/ProductId/SimilarProducts.jsx";
+import SliderImg from "../components/ProductId/SliderImg.jsx";
 
 const ProductIdPage = () => {
   const { id } = useParams();
@@ -13,9 +15,13 @@ const ProductIdPage = () => {
     getProductById(`/products/${id}`);
   }, [id]);
 
+  console.log(product);
+
   return (
     <>
+      <SliderImg product={product} />
       <ProductInfo product={product} />
+      <SimilarProducts product={product} />
     </>
   );
 };

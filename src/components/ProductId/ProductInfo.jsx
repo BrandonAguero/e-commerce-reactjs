@@ -28,9 +28,9 @@ const ProductInfo = ({ product }) => {
           <li>
             <span>Quantity</span>
             <div>
-              <div onClick={handleMinus}>-</div>
+              <button onClick={handleMinus}>-</button>
               <div>{quantity}</div>
-              <div onClick={handleAdd}>+</div>
+              <button onClick={handleAdd}>+</button>
             </div>
           </li>
         </ul>
