@@ -9,7 +9,7 @@ const cartSlice = createSlice({
     setCartG: (state, action) => action.payload,
     addProductCartG: (state, action) => [...state, action.payload],
     deleteProductCartG: (state, action) => {
-      return state.filter((product) => product.id !== action.payload.id);
+      return state.filter((product) => product.id !== action.payload);
     },
   },
 });
@@ -37,4 +37,17 @@ export const postCartThunk = (product) => (dispatch) => {
     .post(baseUrl, data, getConfigAuth())
     .then((res) => dispatch(addProductCartG(res.data)))
     .catch((err) => console.log(err));
+};
+
+export const deleteCartThunk = (id) => (dispatch) => {
+  const url = `${baseUrl}/${id}`;
+  axios
+    .delete(url, getConfigAuth())
+    .then((res) => {
+      console.log(res.data);
+      dispatch(deleteProductCartG(id));
+    })
+    .catch((err) => {
+      console.error(err);
+    });
 };
