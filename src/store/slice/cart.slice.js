@@ -35,7 +35,13 @@ export const postCartThunk = (product) => (dispatch) => {
 
   axios
     .post(baseUrl, data, getConfigAuth())
-    .then((res) => dispatch(addProductCartG(res.data)))
+    .then((res) => {
+      const obj = {
+        ...res.data,
+        product: product,
+      };
+      dispatch(addProductCartG(obj));
+    })
     .catch((err) => console.log(err));
 };
 
