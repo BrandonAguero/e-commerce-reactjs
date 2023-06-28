@@ -1,9 +1,12 @@
 import { useState } from "react";
 import getConfigAuth from "../utils/getConfigAuth.js";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { setCartG } from "../store/slice/cart.slice.js";
 
 const usePurchases = () => {
   const [purchases, setPurchases] = useState();
+  const dispatch = useDispatch();
 
   const url = "https://e-commerce-api-v2.academlo.tech/api/v1/purchases";
 
@@ -21,6 +24,7 @@ const usePurchases = () => {
       .post(url, null, getConfigAuth())
       .then((res) => {
         console.log(res.data);
+        dispatch(setCartG([]));
       })
       .catch((err) => console.error(err));
   };

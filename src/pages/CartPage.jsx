@@ -1,7 +1,6 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import CartElement from "../components/Cart/CartElement.jsx";
 import usePurchases from "../hooks/usePurchases.js";
-import { setCartG } from "../store/slice/cart.slice.js";
 
 const CartPage = () => {
   const cart = useSelector((states) => states.cart);
@@ -12,11 +11,9 @@ const CartPage = () => {
   }, 0);
 
   const { makePurchase } = usePurchases();
-  const dispatch = useDispatch();
 
   const handlePurchase = () => {
     makePurchase();
-    dispatch(setCartG([]));
   };
 
   return (
