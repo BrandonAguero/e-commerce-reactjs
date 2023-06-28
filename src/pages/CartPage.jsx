@@ -1,5 +1,7 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import CartElement from "../components/Cart/CartElement.jsx";
+import usePurchases from "../hooks/usePurchases.js";
+import { setCartG } from "../store/slice/cart.slice.js";
 
 const CartPage = () => {
   const cart = useSelector((states) => states.cart);
@@ -8,6 +10,14 @@ const CartPage = () => {
     const subtotal = cv.quantity * cv.product.price;
     return acc + subtotal;
   }, 0);
+
+  const { makePurchase } = usePurchases();
+  const dispatch = useDispatch();
+
+  const handlePurchase = () => {
+    makePurchase();
+    dispatch(setCartG([]));
+  };
 
   return (
     <div>
@@ -22,6 +32,7 @@ const CartPage = () => {
           <span>Total</span>
           <span>{totalPrice}</span>
         </div>
+        <button onClick={handlePurchase}>Purchase this cart</button>
       </footer>
     </div>
   );

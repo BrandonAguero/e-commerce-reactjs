@@ -1,5 +1,6 @@
 import { useState } from "react";
 import getConfigAuth from "../utils/getConfigAuth.js";
+import axios from "axios";
 
 const usePurchases = () => {
   const [purchases, setPurchases] = useState();
