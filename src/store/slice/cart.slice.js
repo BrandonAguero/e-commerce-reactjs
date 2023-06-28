@@ -27,23 +27,25 @@ export const getCartThunk = () => (dispatch) => {
     .catch((err) => console.log(err));
 };
 
-export const postCartThunk = (product) => (dispatch) => {
-  const data = {
-    quantity: 1,
-    productId: product.id,
-  };
+export const postCartThunk =
+  (product, quantity = 1) =>
+  (dispatch) => {
+    const data = {
+      quantity,
+      productId: product.id,
+    };
 
-  axios
-    .post(baseUrl, data, getConfigAuth())
-    .then((res) => {
-      const obj = {
-        ...res.data,
-        product: product,
-      };
-      dispatch(addProductCartG(obj));
-    })
-    .catch((err) => console.log(err));
-};
+    axios
+      .post(baseUrl, data, getConfigAuth())
+      .then((res) => {
+        const obj = {
+          ...res.data,
+          product: product,
+        };
+        dispatch(addProductCartG(obj));
+      })
+      .catch((err) => console.log(err));
+  };
 
 export const deleteCartThunk = (id) => (dispatch) => {
   const url = `${baseUrl}/${id}`;
