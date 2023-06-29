@@ -15,8 +15,6 @@ const ProductIdPage = () => {
     getProductById(`/products/${id}`);
   }, [id]);
 
-  console.log(product);
-
   return (
     <>
       <SliderImg product={product} />
