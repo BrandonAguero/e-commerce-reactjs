@@ -13,14 +13,17 @@ export const { setProductsG } = productsSlice.actions;
 
 export default productsSlice.reducer;
 
-export const getProductsThunk = () => (dispatch) => {
-  const url = "https://e-commerce-api-v2.academlo.tech/api/v1/products";
-  axios
-    .get(url)
-    .then((res) => {
-      dispatch(setProductsG(res.data));
-    })
-    .catch((err) => {
-      console.error(err);
-    });
-};
+const defaultUrl = "https://e-commerce-api-v2.academlo.tech/api/v1/products";
+
+export const getProductsThunk =
+  (url = defaultUrl) =>
+  (dispatch) => {
+    axios
+      .get(url)
+      .then((res) => {
+        dispatch(setProductsG(res.data));
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };

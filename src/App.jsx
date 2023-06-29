@@ -11,6 +11,7 @@ import Header from "./components/shared/Header.jsx";
 import CartPage from "./pages/CartPage.jsx";
 import { getCartThunk } from "./store/slice/cart.slice.js";
 import PurchasesPage from "./pages/PurchasesPage.jsx";
+import ProtectedRoutes from "./pages/ProtectedRoutes.jsx";
 
 function App() {
   const dispatch = useDispatch();
@@ -28,8 +29,10 @@ function App() {
         <Route path="/product/:id" element={<ProductIdPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/cart" element={<CartPage />} />
-        <Route path="/purchases" element={<PurchasesPage />} />
+        <Route element={<ProtectedRoutes />}>
+          <Route path="/cart" element={<CartPage />} />
+          <Route path="/purchases" element={<PurchasesPage />} />
+        </Route>
       </Routes>
     </>
   );
