@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import useAuth from "../hooks/useAuth.js";
 
 const LoginPage = () => {
-  const { register, reset, handleSubmit } = useForm();
+  const { register, handleSubmit } = useForm();
 
   const { loginUser } = useAuth();
 

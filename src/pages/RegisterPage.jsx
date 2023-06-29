@@ -41,12 +41,14 @@ const RegisterPage = () => {
             {...register("email")}
             type="email"
             id="email"
+            autoComplete="email"
           />
         </div>
         <div className="flex flex-col">
           <label
             htmlFor="firstName"
             className="font-serif text-base text-stone-700 mm:text-xl"
+            autoComplete="given-name"
           >
             First Name
           </label>
@@ -69,6 +71,7 @@ const RegisterPage = () => {
             {...register("lastName")}
             type="text"
             id="lastName"
+            autoComplete="family-name"
           />
         </div>
         <div className="flex flex-col">
@@ -83,6 +86,7 @@ const RegisterPage = () => {
             {...register("password")}
             type="password"
             id="password"
+            autoComplete="new-password"
           />
         </div>
         <div className="flex flex-col">
@@ -97,6 +101,7 @@ const RegisterPage = () => {
             {...register("phone")}
             type="number"
             id="phone"
+            autoComplete="tel"
           />
         </div>
         <input

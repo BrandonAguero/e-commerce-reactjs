@@ -56,10 +56,9 @@ const FilterPrice = ({ setPriceMinMax }) => {
             id="to"
           />
         </div>
-        <input
-          className="w-40 self-end rounded-lg bg-red-600 px-4 py-2 text-center text-xl text-white opacity-80 brightness-105 mm:mb-8"
-          value="Filter Price"
-        />
+        <button className="self-end rounded-lg bg-red-600 px-4 py-2  text-xl text-white opacity-80 brightness-105 mm:mb-8">
+          Filter Price
+        </button>
       </form>
     </article>
   );
