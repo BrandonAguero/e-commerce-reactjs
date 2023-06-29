@@ -23,42 +23,43 @@ const FilterPrice = ({ setPriceMinMax }) => {
   };
 
   return (
-    <article className="w-[90%] flex flex-col gap-2">
+    <article className="flex w-[90%] flex-col gap-2">
       <div
         onClick={handleHiddenPrice}
-        className="text-stone-700 flex items-center justify-between cursor-pointer"
+        className="flex cursor-pointer items-center justify-between text-stone-700"
       >
-        <h3 className="font-serif font-semibold text-2xl">Price</h3>
+        <h3 className="font-serif text-2xl font-semibold">Price</h3>
         <i
           className={`bx bx-chevron-down text-4xl ${rotateArrow} transition-transform duration-500`}
         ></i>
       </div>
-      <div className="bg-gray-300 w-full h-[1px]"></div>
+      <div className="h-[1px] w-full bg-gray-300"></div>
       <form
-        className={`w-[95%] self-end flex-col gap-4 overflow-hidden bg-white ${hiddenSectionFilter} transition-max-h duration-500 flex`}
+        className={`w-[95%] flex-col gap-4 self-end overflow-hidden bg-white ${hiddenSectionFilter} flex transition-max-h duration-500`}
         onSubmit={handleSubmit(onSubmit)}
       >
-        <div className="flex justify-between text-stone-950 items-center ">
+        <div className="flex items-center justify-between text-stone-950 ">
           <label htmlFor="from">From</label>
           <input
             {...register("from")}
-            className="text-black p-2 outline-none border-solid border-[1px] focus:shadow-md"
+            className="border-[1px] border-solid p-2 text-black outline-none focus:shadow-md"
             type="number"
             id="from"
           />
         </div>
-        <div className="flex text-stone-950 items-center justify-between">
+        <div className="flex items-center justify-between text-stone-950">
           <label htmlFor="to">To</label>
           <input
             {...register("to")}
-            className="text-black p-2 outline-none border-solid border-[1px] focus:shadow-md"
+            className="border-[1px] border-solid p-2 text-black outline-none focus:shadow-md"
             type="number"
             id="to"
           />
         </div>
-        <button className="self-end bg-red-600 text-white py-2 px-4  text-xl rounded-lg brightness-105 opacity-80 mm:mb-8">
-          Filter Price
-        </button>
+        <input
+          className="w-40 self-end rounded-lg bg-red-600 px-4 py-2 text-center text-xl text-white opacity-80 brightness-105 mm:mb-8"
+          value="Filter Price"
+        />
       </form>
     </article>
   );
