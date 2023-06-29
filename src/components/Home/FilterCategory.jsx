@@ -40,7 +40,9 @@ const FilterCategory = () => {
         onClick={handleHiddenCategory}
       >
         <h3 className="font-serif font-semibold text-2xl">Category</h3>
-        <i className={`bx bx-chevron-down text-4xl ${rotateArrow}`}></i>
+        <i
+          className={`bx bx-chevron-down text-4xl ${rotateArrow} transition-transform duration-500`}
+        ></i>
       </div>
       <div className="bg-gray-300 w-full h-[1px]"></div>
       <ul
