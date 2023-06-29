@@ -35,7 +35,7 @@ const FilterPrice = ({ setPriceMinMax }) => {
       </div>
       <div className="bg-gray-300 w-full h-[1px]"></div>
       <form
-        className={`w-[95%] self-end flex-col gap-4 overflow-hidden bg-white ${hiddenSectionFilter} transition-max-h duration-500`}
+        className={`w-[95%] self-end flex-col gap-4 overflow-hidden bg-white ${hiddenSectionFilter} transition-max-h duration-500 flex`}
         onSubmit={handleSubmit(onSubmit)}
       >
         <div className="flex justify-between text-stone-950 items-center ">
@@ -56,7 +56,7 @@ const FilterPrice = ({ setPriceMinMax }) => {
             id="to"
           />
         </div>
-        <button className="self-end bg-red-600 text-white py-2 px-4  text-xl rounded-lg brightness-105 opacity-80">
+        <button className="self-end bg-red-600 text-white py-2 px-4  text-xl rounded-lg brightness-105 opacity-80 mm:mb-8">
           Filter Price
         </button>
       </form>

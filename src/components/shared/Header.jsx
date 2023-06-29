@@ -14,7 +14,7 @@ const Header = () => {
             </Link>
           </li>
         </ul>
-        <ul className="flex items-center justify-center text-gray-400 text-4xl mm:text-5xl mm:gap-4 gap-2">
+        <ul className="flex items-center justify-center text-gray-400 text-4xl mm:text-5xl mm:gap-4 gap-2 mr-2">
           <li className="cursor-pointer">
             <Link to={"/register"}>
               <i className="bx bx-user-plus"></i>
