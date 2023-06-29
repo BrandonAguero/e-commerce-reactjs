@@ -71,12 +71,14 @@ const Home = () => {
             <span className="font-sans text-2xl mm:text-3xl">Filters</span>
           </button>
         </header>
-        {products
-          ?.filter(cbFilter)
-          .filter(cbFilterPrice)
-          .map((product) => (
-            <CardProduct key={product.id} product={product} />
-          ))}
+        <section className="flex flex-wrap mg:gap-16 w-full justify-center gap-8">
+          {products
+            ?.filter(cbFilter)
+            .filter(cbFilterPrice)
+            .map((product) => (
+              <CardProduct key={product.id} product={product} />
+            ))}
+        </section>
       </main>
     </>
   );

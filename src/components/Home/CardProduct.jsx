@@ -19,7 +19,7 @@ const CardProduct = ({ product }) => {
     <>
       <article
         onClick={handleDetail}
-        className="w-full border border-solid border-gray-400 rounded-xl max-w-[280px] cursor-pointer hover:scale-105"
+        className="w-full border max-h-[600px] border-solid border-gray-400 rounded-xl max-w-[280px] mm:max-w-[300px] cursor-pointer hover:scale-105"
       >
         <header className="relative border-b border-solid border-gray-400 aspect-square group">
           <img
