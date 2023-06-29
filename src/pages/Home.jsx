@@ -37,35 +37,35 @@ const Home = () => {
   return (
     <>
       <aside
-        className={`${hiddenFilters} duration-500 transition-transform ease-linear fixed bg-white w-screen h-screen top-0 z-10 flex flex-col items-center`}
+        className={`${hiddenFilters} tp:block tp:row-start-2 tp:row-end-7 tp:col-start-1 tp:col-end-3 tp:left-4 tp:max-w-[315px] tg:max-w-[326px] lp:max-w-[370px] tp:top-36 duration-500 transition-transform ease-linear fixed bg-white w-screen mm:w-2/3 mm:max-w-[380px] right-0 h-screen top-0 z-10 flex flex-col items-center`}
       >
         <button
           onClick={hiddenProductFilters}
-          className="text-4xl text-gray-900 mm:text-5xl self-end"
+          className="text-4xl text-gray-900 mm:text-5xl self-end tp:hidden"
         >
           <i className="bx bx-x"></i>
         </button>
-        <h2 className="font-serif text-3xl font-bold text-stone-700 w-[90%]">
+        <h2 className="font-serif text-3xl font-bold text-stone-700 w-[90%] tp:hidden">
           Filters
         </h2>
         <FilterPrice setPriceMinMax={setPriceMinMax} />
         <FilterCategory />
       </aside>
-      <main className="flex flex-col gap-8 w-full items-center">
-        <header className="flex flex-col items-center w-max gap-4">
+      <main className="flex flex-col gap-8 w-full items-center tp:row-start-2 tp:row-end-7 tp:col-start-4 tg:col-start-3 tp:col-end-9">
+        <header className="flex flex-col items-center w-max gap-4 mt-20 mm:mt-24 tp:mt-0">
           <div className="flex">
             <input
               type="text"
-              className="border-solid  focus:shadow-md outline-none border-gray-400 border-t-[1px] border-b-[1px] border-l-[1px] font-sans p-2 placeholder:text-gray-300"
+              className="border-solid tp:w-96 focus:shadow-md outline-none border-gray-400 border-t-[1px] border-b-[1px] border-l-[1px] font-sans p-2 placeholder:text-gray-300"
               value={inputValue}
               onChange={handleSearchName}
               placeholder="What are you looking"
             />
-            <i className="bx bx-search text-white bg-red-600 flex place-items-center p-2 cursor-pointer text-xl mm:text-3xl"></i>
+            <i className="bx bx-search text-white bg-red-600 flex place-items-center p-2 cursor-pointer text-xl mm:text-3xl tp:w-20 justify-center"></i>
           </div>
           <button
             onClick={openProductFilters}
-            className="text-gray-400 text-4xl mm:text-5xl self-end flex items-center"
+            className="text-gray-400 text-4xl mm:text-5xl self-end flex items-center tp:hidden"
           >
             <i className="bx bx-filter-alt"></i>
             <span className="font-sans text-2xl mm:text-3xl">Filters</span>
