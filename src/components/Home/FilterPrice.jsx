@@ -2,8 +2,8 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 const FilterPrice = ({ setPriceMinMax }) => {
-  const [hiddenFilterPrice, setHiddenFilterPrice] = useState("flex");
-
+  const [rotateArrow, setRotateArrow] = useState("rotate-0");
+  const [hiddenSectionFilter, setHiddenSectionFilter] = useState("max-h-max");
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
@@ -13,7 +13,13 @@ const FilterPrice = ({ setPriceMinMax }) => {
   };
 
   const handleHiddenPrice = () => {
-    setHiddenFilterPrice("hidden");
+    if (rotateArrow === "rotate-180") {
+      setRotateArrow("rotate-0");
+      setHiddenSectionFilter("max-h-max");
+    } else {
+      setRotateArrow("rotate-180");
+      setHiddenSectionFilter("max-h-0");
+    }
   };
 
   return (
@@ -23,15 +29,16 @@ const FilterPrice = ({ setPriceMinMax }) => {
         className="text-stone-700 flex items-center justify-between cursor-pointer"
       >
         <h3 className="font-serif font-semibold text-2xl">Price</h3>
-        <i className="bx bx-chevron-down text-4xl"></i>
-        <i className="bx bx-chevron-up text-4xl hidden"></i>
+        <i
+          className={`bx bx-chevron-down text-4xl ${rotateArrow} transition-transform duration-500`}
+        ></i>
       </div>
       <div className="bg-gray-300 w-full h-[1px]"></div>
       <form
-        className={`w-[95%] self-end ${hiddenFilterPrice} flex-col gap-4 bg-white`}
+        className={`w-[95%] self-end flex-col gap-4 overflow-hidden bg-white ${hiddenSectionFilter} transition-max-h duration-500`}
         onSubmit={handleSubmit(onSubmit)}
       >
-        <div className="flex justify-between text-stone-950 items-center">
+        <div className="flex justify-between text-stone-950 items-center ">
           <label htmlFor="from">From</label>
           <input
             {...register("from")}
