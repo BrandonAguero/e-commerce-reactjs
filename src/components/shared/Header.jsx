@@ -27,7 +27,7 @@ const Header = () => {
           </li>
           <li className="cursor-pointer">
             <Link to={"/purchases"}>
-              <i class="bx bx-box"></i>
+              <i className="bx bx-box"></i>
             </Link>
           </li>
           <li className="cursor-pointer">
