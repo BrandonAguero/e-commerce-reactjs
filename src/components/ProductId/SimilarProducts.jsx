@@ -14,9 +14,11 @@ const SimilarProducts = ({ product }) => {
   }, [product]);
 
   return (
-    <article>
-      <h2>Similar Products</h2>
-      <div className="flex flex-col gap-8">
+    <article className="mt-4 flex flex-col">
+      <h2 className="mb-8 font-serif text-base font-semibold text-red-600">
+        Discover Similar Items
+      </h2>
+      <div className="flex flex-col gap-8 ">
         {productByCategory?.map((prod) => {
           if (product.id !== prod.id)
             return <CardProduct key={prod.id} product={prod} />;

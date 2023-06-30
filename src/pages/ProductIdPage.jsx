@@ -17,7 +17,7 @@ const ProductIdPage = () => {
 
   return (
     <>
-      <section className="relative top-24 m-auto flex w-[90%] flex-col">
+      <section className="relative top-24  m-auto flex w-[90%] flex-col gap-2">
         <SliderImg product={product} />
         <ProductInfo product={product} />
         <SimilarProducts product={product} />
