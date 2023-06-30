@@ -17,7 +17,7 @@ const CartElement = ({ product }) => {
         />
       </header>
       <section className="col-start-2 col-end-4 row-start-1 row-end-2">
-        <h3 className="font-semibold text-stone-600">
+        <h3 className="font-semibold text-stone-600 mm:text-lg">
           {product.product.title}
         </h3>
         <p>
@@ -25,11 +25,11 @@ const CartElement = ({ product }) => {
         </p>
       </section>
       <section className="text-center">
-        <button className="text-red-500" onClick={handleDelete}>
+        <button className="text-red-500 mm:text-lg" onClick={handleDelete}>
           <i className="bx bx-trash"></i>
         </button>
       </section>
-      <footer className="col-start-3 col-end-5 row-start-2 row-end-2 flex gap-2 self-center justify-self-end text-xs">
+      <footer className="col-start-3 col-end-5 row-start-2 row-end-2 flex gap-2 self-center justify-self-end text-xs mm:text-sm">
         <span className="text-stone-600">Total</span>
         <span className="font-semibold text-stone-800">
           $ {product.quantity * product.product.price}
