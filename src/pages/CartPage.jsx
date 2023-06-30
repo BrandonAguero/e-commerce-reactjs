@@ -17,14 +17,14 @@ const CartPage = () => {
   };
 
   return (
-    <div className="relative top-16 flex h-screen w-screen flex-col items-center gap-2">
+    <div className="relative top-16 flex h-[85vh] w-screen flex-col items-center gap-2">
       <h2 className="w-4/5 text-xl font-bold text-stone-700">Shopping Cart</h2>
-      <div className="flex h-[60%] w-4/5 flex-col gap-2 overflow-y-scroll">
+      <div className="flex h-[71%] w-4/5 flex-col gap-2 overflow-y-scroll">
         {cart?.map((product) => (
           <CartElement key={product.id} product={product} />
         ))}
       </div>
-      <footer className="z-20 flex h-[20%] w-4/5 flex-col items-center justify-center gap-2 bg-white font-serif">
+      <footer className="relative bottom-0 z-20 flex h-[20%] max-h-[90px] w-4/5 flex-col items-center justify-center gap-2 bg-white font-serif">
         <div className="flex w-full justify-between font-semibold">
           <span className="text-stone-600">Total</span>
           <span className="text-stone-800">$ {totalPrice}</span>
