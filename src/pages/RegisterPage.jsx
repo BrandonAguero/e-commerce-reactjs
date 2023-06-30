@@ -38,7 +38,7 @@ const RegisterPage = () => {
           </label>
           <input
             className="rounded-sm border-2 p-1 outline-none focus:shadow-md mm:p-2"
-            {...register("email")}
+            {...register("email", { required: true })}
             type="email"
             id="email"
             autoComplete="email"
@@ -54,7 +54,7 @@ const RegisterPage = () => {
           </label>
           <input
             className="rounded-sm border-2 p-1 outline-none focus:shadow-md mm:p-2"
-            {...register("firstName")}
+            {...register("firstName", { required: true })}
             type="text"
             id="firstName"
           />
@@ -68,7 +68,7 @@ const RegisterPage = () => {
           </label>
           <input
             className="rounded-sm border-2 p-1 outline-none focus:shadow-md mm:p-2"
-            {...register("lastName")}
+            {...register("lastName", { required: true })}
             type="text"
             id="lastName"
             autoComplete="family-name"
@@ -83,7 +83,7 @@ const RegisterPage = () => {
           </label>
           <input
             className="rounded-sm border-2 p-1 outline-none focus:shadow-md mm:p-2"
-            {...register("password")}
+            {...register("password", { required: true })}
             type="password"
             id="password"
             autoComplete="new-password"
@@ -98,7 +98,7 @@ const RegisterPage = () => {
           </label>
           <input
             className="rounded-sm border-2 p-1 outline-none focus:shadow-md mm:p-2"
-            {...register("phone")}
+            {...register("phone", { required: true })}
             type="number"
             id="phone"
             autoComplete="tel"
