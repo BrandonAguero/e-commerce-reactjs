@@ -14,37 +14,38 @@ const CardProduct = ({ product }) => {
     e.stopPropagation();
     dispatch(postCartThunk(product));
   };
+  console.log(product.id);
 
   return (
     <>
       <article
         onClick={handleDetail}
-        className="w-full border max-h-[600px] border-solid border-gray-400 rounded-xl max-w-[280px] mm:max-w-[300px] cursor-pointer hover:scale-105"
+        className="max-h-[600px] w-full max-w-[280px] cursor-pointer rounded-xl border border-solid border-gray-400 hover:scale-105 mm:max-w-[300px]"
       >
-        <header className="relative border-b border-solid border-gray-400 aspect-square group">
+        <header className="group relative aspect-square border-b border-solid border-gray-400">
           <img
-            className="w-[90%] h-[90%] m-auto object-contain opacity-100 group-hover:opacity-0 transition-opacity duration-700"
+            className="m-auto h-[90%] w-[90%] object-contain opacity-100 transition-opacity duration-700 group-hover:opacity-0"
             src={product.images[0].url}
             alt=""
           />
           <img
-            className="absolute object-contain top-0 w-full h-full opacity-0 group-hover:opacity-100 transition-opacity duration-700  "
+            className="absolute top-0 h-full w-full object-contain opacity-0 transition-opacity duration-700 group-hover:opacity-100  "
             src={product.images[1].url}
             alt=""
           />
         </header>
-        <section className="pt-6 pr-4 pl-4 pb-8 grid-cols-2 grid-rows-2 gap-4 grid">
-          <div className="row-span-1 col-span-2">
-            <h3 className="font-light text-base ">{product.brand}</h3>
-            <h2 className="font-medium text-2xl">{product.title}</h2>
+        <section className="grid grid-cols-2 grid-rows-2 gap-4 pb-8 pl-4 pr-4 pt-6">
+          <div className="col-span-2 row-span-1">
+            <h3 className="text-base font-light ">{product.brand}</h3>
+            <h2 className="text-2xl font-medium">{product.title}</h2>
           </div>
           <div className="row-span-2 ">
-            <span className="font-light text-base">Price</span>
-            <h3 className="font-medium text-2xl">{product.price}</h3>
+            <span className="text-base font-light">Price</span>
+            <h3 className="text-2xl font-medium">{product.price}</h3>
           </div>
           <button
             onClick={handleAddCart}
-            className="aspect-square w-16 justify-self-center text-2xl rounded-[50%] relative right-4 bg-red-600 text-white hover:brightness-110 top-8"
+            className="relative right-4 top-8 aspect-square w-16 justify-self-center rounded-[50%] bg-red-600 text-2xl text-white hover:brightness-110"
           >
             <i className="bx bx-cart-alt"></i>
           </button>

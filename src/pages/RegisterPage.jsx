@@ -111,7 +111,7 @@ const RegisterPage = () => {
         />
       </form>
       <footer className="flex w-4/5 max-w-[410px] flex-col">
-        <h4 className="text-sm mm:text-base">
+        <h4 className="font-serif text-sm mm:text-base">
           Already have an account?{" "}
           <Link className="text-blue-400 hover:text-lg" to="/login">
             Login in
