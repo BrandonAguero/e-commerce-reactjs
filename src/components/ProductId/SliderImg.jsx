@@ -21,7 +21,7 @@ const SliderImg = ({ product }) => {
           height: "1.8rem",
           justifyContent: "center",
           alignItems: "center",
-          top: "6rem",
+          top: window.innerWidth > 992 ? "12rem" : "6rem",
         }}
       ></div>
     );
@@ -38,9 +38,8 @@ const SliderImg = ({ product }) => {
           style={{
             transform: i === activeSlide ? "scale(1.5)" : "scale(1)",
             transition: "transform 0.3s",
-            width: "3rem",
-            height: "3rem",
           }}
+          className="h-12 w-12 tp:h-24 tp:w-24"
         >
           <img
             style={{
@@ -66,12 +65,12 @@ const SliderImg = ({ product }) => {
     appendDots: (dots) => (
       <ul
         style={{
-          display: "flex",
-          gap: "3rem",
           listStyle: "none",
           justifyContent: "center",
           position: "relative",
-          top: "1rem",
+          top: window.innerWidth > 992 ? "4rem" : "1rem",
+          display: "flex",
+          gap: window.innerWidth > 992 ? "6rem" : "2.5rem",
         }}
       >
         {dots.map((dot, index) => (
@@ -83,12 +82,15 @@ const SliderImg = ({ product }) => {
 
   return (
     <Slider
-      className="m-auto flex h-[20rem] w-[90%] flex-col gap-4"
+      className="m-auto flex h-[20rem] w-[90%] flex-col gap-4 tp:h-[45rem] tp:w-1/2"
       {...settings}
     >
       {images?.map((image, index) => (
         <figure key={index}>
-          <img className="m-auto h-44 w-44 object-contain" src={image} />
+          <img
+            className="m-auto h-44 w-44 object-contain tp:h-96  tp:w-96"
+            src={image}
+          />
         </figure>
       ))}
     </Slider>

@@ -17,9 +17,11 @@ const ProductIdPage = () => {
 
   return (
     <>
-      <section className="relative top-24  m-auto flex w-[90%] flex-col gap-2">
-        <SliderImg product={product} />
-        <ProductInfo product={product} />
+      <section className="relative top-24 m-auto flex w-[90%] flex-col gap-2 tp:top-36 tp:col-start-1 tp:col-end-9 tp:row-start-1 tp:row-end-7">
+        <div className="flex h-max flex-col gap-16 tp:flex-row">
+          <SliderImg product={product} />
+          <ProductInfo product={product} />
+        </div>
         <SimilarProducts product={product} />
       </section>
     </>

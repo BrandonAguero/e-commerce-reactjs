@@ -14,7 +14,6 @@ const CardProduct = ({ product }) => {
     e.stopPropagation();
     dispatch(postCartThunk(product));
   };
-  console.log(product.id);
 
   return (
     <>

@@ -14,17 +14,17 @@ const SimilarProducts = ({ product }) => {
   }, [product]);
 
   return (
-    <article className="mt-4 flex flex-col">
-      <h2 className="mb-8 font-serif text-base font-semibold text-red-600">
+    <footer className="mt-4 flex flex-col">
+      <h2 className="mb-8 font-serif text-base font-semibold text-red-600 mm:text-xl">
         Discover Similar Items
       </h2>
-      <div className="flex w-full flex-col items-center gap-8">
+      <div className="flex w-full flex-wrap items-center justify-center gap-8">
         {productByCategory?.map((prod) => {
           if (product.id !== prod.id)
             return <CardProduct key={prod.id} product={prod} />;
         })}
       </div>
-    </article>
+    </footer>
   );
 };
 
