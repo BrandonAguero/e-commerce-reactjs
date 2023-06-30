@@ -1,40 +1,97 @@
-import { useState } from "react";
-import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
+import React, { useState } from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const SliderImg = ({ product }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [activeSlide, setActiveSlide] = useState(0);
 
-  const prevSlide = () => {
-    const isFirstSlide = currentIndex === 0;
-    const newIndex = isFirstSlide
-      ? product.images.length - 1
-      : currentIndex - 1;
-    setCurrentIndex(newIndex);
+  const Arrow = (props) => {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        onClick={onClick}
+        style={{
+          ...style,
+          display: "flex",
+          background: "black",
+          borderRadius: "50%",
+          width: "1.8rem",
+          height: "1.8rem",
+          justifyContent: "center",
+          alignItems: "center",
+          top: "6rem",
+        }}
+      ></div>
+    );
   };
 
-  const nextSlide = () => {
-    const isLastSlide = currentIndex === product.images.length - 1;
-    const newIndex = isLastSlide ? 0 : currentIndex + 1;
-    setCurrentIndex(newIndex);
-  };
+  const images = product?.images.map((image) => {
+    return image.url;
+  });
 
-  const images = product?.images.map((image) => image.url) || [];
+  const settings = {
+    customPaging: function (i) {
+      return (
+        <figure
+          style={{
+            transform: i === activeSlide ? "scale(1.5)" : "scale(1)",
+            transition: "transform 0.3s",
+            width: "3rem",
+            height: "3rem",
+          }}
+        >
+          <img
+            style={{
+              objectFit: "contain",
+              width: "100%",
+              height: "100%",
+            }}
+            src={images[i]}
+          />
+        </figure>
+      );
+    },
+    dots: true,
+    dotsClass: "slick-dots slick-thumb",
+    infinite: true,
+    speed: 500,
+    initialSlide: 0,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    prevArrow: <Arrow />,
+    nextArrow: <Arrow />,
+    beforeChange: (current, next) => setActiveSlide(next),
+    appendDots: (dots) => (
+      <ul
+        style={{
+          display: "flex",
+          gap: "3rem",
+          listStyle: "none",
+          justifyContent: "center",
+          position: "relative",
+          top: "1rem",
+        }}
+      >
+        {dots.map((dot, index) => (
+          <li key={index}>{dot}</li>
+        ))}
+      </ul>
+    ),
+  };
 
   return (
-    <div className="max-w-[1400px] h-[780px] w-full m-auto py-16 px-4 relative group">
-      {images.length > 0 && (
-        <div
-          style={{ backgroundImage: `url(${images[currentIndex]})` }}
-          className="w-full h-full rounded-2xl bg-center bg-contain duration-500 bg-no-repeat"
-        ></div>
-      )}
-      <div className="absolute top-[50%] -translate-x-0 translate-y-[-50%] text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer hidden group-hover:block">
-        <BsChevronCompactLeft onClick={prevSlide} size={30} />
-      </div>
-      <div className="absolute top-[50%] -translate-x-0 translate-y-[-50%] text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer hidden group-hover:block left-full">
-        <BsChevronCompactRight onClick={nextSlide} size={30} />
-      </div>
-    </div>
+    <Slider
+      className="m-auto flex h-[20rem] w-[90%] flex-col gap-4"
+      {...settings}
+    >
+      {images?.map((image, index) => (
+        <figure key={index}>
+          <img className="m-auto h-44 w-44 object-contain" src={image} />
+        </figure>
+      ))}
+    </Slider>
   );
 };
 

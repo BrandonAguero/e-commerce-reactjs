@@ -17,9 +17,11 @@ const ProductIdPage = () => {
 
   return (
     <>
-      <SliderImg product={product} />
-      <ProductInfo product={product} />
-      <SimilarProducts product={product} />
+      <section className="relative top-24 m-auto flex w-[90%] flex-col">
+        <SliderImg product={product} />
+        <ProductInfo product={product} />
+        <SimilarProducts product={product} />
+      </section>
     </>
   );
 };

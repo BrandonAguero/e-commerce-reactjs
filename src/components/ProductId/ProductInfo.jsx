@@ -22,7 +22,7 @@ const ProductInfo = ({ product }) => {
   };
 
   return (
-    <article>
+    <article className="flex flex-col">
       <h3>{product?.brand}</h3>
       <h2>{product?.title}</h2>
       <p>{product?.description}</p>
