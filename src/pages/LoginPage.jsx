@@ -24,10 +24,23 @@ const LoginPage = () => {
       {user ? (
         <UserLogin user={user} />
       ) : (
-        <div className="relative top-24 flex flex-col items-center gap-1 ms:gap-2 mm:top-36 mm:gap-4 tp:top-60 tp:col-start-3 tp:col-end-7 tp:row-start-1 tp:row-end-6">
+        <div className="relative top-24 flex flex-col items-center gap-1 ms:gap-2 mm:top-36 mm:gap-4 tp:top-48 tp:col-start-3 tp:col-end-7 tp:row-start-1 tp:row-end-6">
           <h2 className="w-3/4 max-w-[410px] font-serif text-2xl text-stone-800 mm:text-3xl">
             Welcome! Enter your email and password to continue
           </h2>
+          <div className="flex w-80 flex-col bg-blue-200 p-4">
+            <h4 className="text-center font-serif text-xl font-semibold ">
+              Test Data
+            </h4>
+            <div className="flex items-center gap-2 text-gray-700">
+              <i className="bx bx-envelope"></i>
+              <span>brandonaguero2004@gmail.com</span>
+            </div>
+            <div className="flex items-center gap-2 text-gray-700">
+              <i className="bx bx-lock-alt"></i>
+              <span>75552366</span>
+            </div>
+          </div>
           <form
             className="flex w-3/4 max-w-[410px] flex-col gap-2  mm:gap-4"
             onSubmit={handleSubmit(onSubmit)}
