@@ -3,8 +3,6 @@ import { useNavigate } from "react-router-dom";
 const PurchaseCard = ({ product }) => {
   const navigate = useNavigate();
 
-  console.log(product);
-
   const redirectProductId = () => {
     navigate(`/product/${product.productId}`);
   };
