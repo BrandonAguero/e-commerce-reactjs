@@ -17,10 +17,10 @@ const FilterCategory = () => {
   const handleHiddenCategory = () => {
     if (rotateArrow === "rotate-180") {
       setRotateArrow("rotate-0");
-      setHiddenSectionFilter("max-h-max");
+      setHiddenSectionFilter("animate-slide-in");
     } else {
       setRotateArrow("rotate-180");
-      setHiddenSectionFilter("max-h-0");
+      setHiddenSectionFilter("animate-slide-out hidden");
     }
   };
 
@@ -46,17 +46,17 @@ const FilterCategory = () => {
       </div>
       <div className="h-[1px] w-full bg-gray-300"></div>
       <ul
-        className={`flex w-[95%] flex-col gap-2 self-end overflow-hidden ${hiddenSectionFilter} transition-max-h duration-500`}
+        className={`flex w-[95%] flex-col gap-2 self-end overflow-hidden ${hiddenSectionFilter}`}
       >
         <li
-          className="cursor-pointer hover:scale-110"
+          className="cursor-pointer hover:text-lg"
           onClick={() => handleFilterCategory()}
         >
           All Categories
         </li>
         {categories?.map((category) => (
           <li
-            className="cursor-pointer hover:scale-110"
+            className="cursor-pointer hover:text-lg"
             onClick={() => handleFilterCategory(category.id)}
             key={category.id}
           >

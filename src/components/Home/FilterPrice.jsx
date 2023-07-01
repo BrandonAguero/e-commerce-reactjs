@@ -15,10 +15,10 @@ const FilterPrice = ({ setPriceMinMax }) => {
   const handleHiddenPrice = () => {
     if (rotateArrow === "rotate-180") {
       setRotateArrow("rotate-0");
-      setHiddenSectionFilter("max-h-max");
+      setHiddenSectionFilter("animate-slide-in");
     } else {
       setRotateArrow("rotate-180");
-      setHiddenSectionFilter("max-h-0");
+      setHiddenSectionFilter("animate-slide-out hidden");
     }
   };
 
@@ -35,7 +35,7 @@ const FilterPrice = ({ setPriceMinMax }) => {
       </div>
       <div className="h-[1px] w-full bg-gray-300"></div>
       <form
-        className={`w-[95%] flex-col gap-4 self-end overflow-hidden bg-white ${hiddenSectionFilter} flex transition-max-h duration-500`}
+        className={`w-[95%] flex-col gap-4 self-end overflow-hidden bg-white ${hiddenSectionFilter} flex`}
         onSubmit={handleSubmit(onSubmit)}
       >
         <div className="flex items-center justify-between text-stone-950 ">

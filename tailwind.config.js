@@ -18,6 +18,28 @@ export default {
       transitionProperty: {
         "max-h": "max-height",
       },
+      keyframes: {
+        "slide-in": {
+          "0%": {
+            "max-height": "0",
+          },
+          "100%": {
+            "max-height": "max-content",
+          },
+        },
+        "slide-out": {
+          "0%": {
+            "max-height": "max-content",
+          },
+          "100%": {
+            "max-height": "0",
+          },
+        },
+      },
+      animation: {
+        "slide-in": "slide-in 1000ms ease-out",
+        "slide-out": "slide-out 1000ms ease-out",
+      },
     },
   },
   plugins: [],
