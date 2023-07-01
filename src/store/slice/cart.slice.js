@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import getConfigAuth from "../../utils/getConfigAuth.js";
+import { setVerifyProductCartG } from "./verifyProductCart.slice.js";
 
 const cartSlice = createSlice({
   name: "cart",
@@ -35,7 +36,6 @@ export const postCartThunk =
       quantity,
       productId: product.id,
     };
-
     axios
       .post(baseUrl, data, getConfigAuth())
       .then((res) => {
@@ -44,8 +44,11 @@ export const postCartThunk =
           product: product,
         };
         dispatch(addProductCartG(obj));
+        dispatch(setVerifyProductCartG(false));
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        dispatch(setVerifyProductCartG(true));
+      });
   };
 
 export const deleteCartThunk = (id) => (dispatch) => {

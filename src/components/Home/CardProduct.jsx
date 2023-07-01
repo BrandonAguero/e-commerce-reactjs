@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { postCartThunk } from "../../store/slice/cart.slice.js";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setVerifyProductCartG } from "../../store/slice/verifyProductCart.slice.js";
 
 const CardProduct = ({ product }) => {
   const navigate = useNavigate();
@@ -8,6 +9,13 @@ const CardProduct = ({ product }) => {
 
   const handleDetail = () => {
     navigate(`/product/${product.id}`);
+  };
+
+  const verifyProductCart = useSelector((state) => state.verifyProductCart);
+  console.log(verifyProductCart);
+
+  const handleHiddenAlert = () => {
+    dispatch(setVerifyProductCartG(false));
   };
 
   const handleAddCart = (e) => {
@@ -50,6 +58,21 @@ const CardProduct = ({ product }) => {
           </button>
         </section>
       </article>
+      {verifyProductCart && (
+        <div className="fixed left-0 top-0 z-40 flex h-screen w-screen place-content-center place-items-center backdrop-blur-[0.4px]">
+          <div className="flex h-44 w-96 flex-col place-content-center items-center gap-4 rounded-lg bg-white text-xl shadow-sm">
+            <h2 className="text-stone-700">
+              This product is already in your cart🙂
+            </h2>
+            <button
+              className="w-44 rounded-md bg-blue-600 p-2 text-white hover:brightness-125"
+              onClick={handleHiddenAlert}
+            >
+              Accept
+            </button>
+          </div>
+        </div>
+      )}
     </>
   );
 };
