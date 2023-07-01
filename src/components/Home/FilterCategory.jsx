@@ -34,29 +34,29 @@ const FilterCategory = () => {
   };
 
   return (
-    <article className="w-[90%] flex flex-col gap-2">
+    <article className="flex w-[90%] flex-col gap-2">
       <div
-        className="text-stone-700 flex items-center justify-between cursor-pointer"
+        className="flex cursor-pointer items-center justify-between text-stone-700"
         onClick={handleHiddenCategory}
       >
-        <h3 className="font-serif font-semibold text-2xl">Category</h3>
+        <h3 className="font-serif text-2xl font-semibold">Category</h3>
         <i
           className={`bx bx-chevron-down text-4xl ${rotateArrow} transition-transform duration-500`}
         ></i>
       </div>
-      <div className="bg-gray-300 w-full h-[1px]"></div>
+      <div className="h-[1px] w-full bg-gray-300"></div>
       <ul
-        className={`w-[95%] self-end flex flex-col overflow-hidden gap-2 ${hiddenSectionFilter} transition-max-h duration-500`}
+        className={`flex w-[95%] flex-col gap-2 self-end overflow-hidden ${hiddenSectionFilter} transition-max-h duration-500`}
       >
         <li
-          className="cursor-pointer hover:text-xl"
+          className="cursor-pointer hover:scale-110"
           onClick={() => handleFilterCategory()}
         >
           All Categories
         </li>
         {categories?.map((category) => (
           <li
-            className="cursor-pointer hover:text-xl"
+            className="cursor-pointer hover:scale-110"
             onClick={() => handleFilterCategory(category.id)}
             key={category.id}
           >
