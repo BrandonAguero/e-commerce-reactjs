@@ -1,7 +1,8 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { postCartThunk } from "../../store/slice/cart.slice.js";
 import { useDispatch, useSelector } from "react-redux";
 import { setVerifyProductCartG } from "../../store/slice/verifyProductCart.slice.js";
+import { useState } from "react";
 
 const CardProduct = ({ product }) => {
   const navigate = useNavigate();
@@ -18,10 +19,17 @@ const CardProduct = ({ product }) => {
     dispatch(setVerifyProductCartG(false));
   };
 
+  const removeLoginSection = () => {
+    dispatch(setVerifyProductCartG(false));
+  };
+
   const handleAddCart = (e) => {
     e.stopPropagation();
     dispatch(postCartThunk(product));
   };
+
+  const user = window.localStorage.getItem("user");
+  const isEmptyLocalStorage = window.localStorage.length;
 
   return (
     <>
@@ -58,7 +66,7 @@ const CardProduct = ({ product }) => {
           </button>
         </section>
       </article>
-      {verifyProductCart && (
+      {verifyProductCart && user && (
         <div className="fixed left-0 top-0 z-40 flex h-screen w-screen place-content-center place-items-center backdrop-blur-[0.4px]">
           <div className="flex h-44 w-96 flex-col place-content-center items-center gap-4 rounded-lg bg-white text-xl shadow-sm">
             <h2 className="text-stone-700">
@@ -69,6 +77,25 @@ const CardProduct = ({ product }) => {
               onClick={handleHiddenAlert}
             >
               Accept
+            </button>
+          </div>
+        </div>
+      )}
+      {verifyProductCart && isEmptyLocalStorage === 0 && (
+        <div className="fixed left-0 top-0 z-40 flex h-screen w-screen place-content-center place-items-center backdrop-blur-[0.4px]">
+          <div className="flex h-44 w-96 flex-col place-content-center items-center gap-4 rounded-lg bg-white p-2 text-xl shadow-sm">
+            <i
+              onClick={removeLoginSection}
+              className="bx bx-x cursor-pointer self-end text-2xl text-red-600"
+            ></i>
+            <h2 className="text-center text-stone-700">
+              Please log in to add products to your cart 🙄
+            </h2>
+            <button
+              className="w-44 rounded-md bg-blue-600 p-2 text-white hover:brightness-125"
+              onClick={handleHiddenAlert}
+            >
+              <Link to="/login">Login</Link>
             </button>
           </div>
         </div>
