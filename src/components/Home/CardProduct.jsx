@@ -9,6 +9,7 @@ const CardProduct = ({ product }) => {
 
   const handleDetail = () => {
     navigate(`/product/${product.id}`);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const verifyProductCart = useSelector((state) => state.verifyProductCart);
