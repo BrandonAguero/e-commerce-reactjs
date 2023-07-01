@@ -19,7 +19,7 @@ const CardProduct = ({ product }) => {
     <>
       <article
         onClick={handleDetail}
-        className="max-h-[600px] w-full max-w-[280px] cursor-pointer rounded-xl border border-solid border-gray-400 hover:scale-105 mm:max-w-[300px]"
+        className="max-h-[600px] w-full max-w-[280px] cursor-pointer rounded-xl border border-solid border-gray-400 p-2 hover:scale-105 mm:max-w-[300px]"
       >
         <header className="group relative aspect-square border-b border-solid border-gray-400">
           <img
@@ -34,7 +34,7 @@ const CardProduct = ({ product }) => {
           />
         </header>
         <section className="grid grid-cols-2 grid-rows-2 gap-4 pb-8 pl-4 pr-4 pt-6">
-          <div className="col-span-2 row-span-1">
+          <div className="col-span-2 row-span-1 h-40">
             <h3 className="text-base font-light ">{product.brand}</h3>
             <h2 className="text-2xl font-medium">{product.title}</h2>
           </div>
