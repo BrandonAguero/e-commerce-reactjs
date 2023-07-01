@@ -12,7 +12,6 @@ const CardProduct = ({ product }) => {
   };
 
   const verifyProductCart = useSelector((state) => state.verifyProductCart);
-  console.log(verifyProductCart);
 
   const handleHiddenAlert = () => {
     dispatch(setVerifyProductCartG(false));

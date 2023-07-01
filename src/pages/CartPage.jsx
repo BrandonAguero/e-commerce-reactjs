@@ -4,7 +4,6 @@ import usePurchases from "../hooks/usePurchases.js";
 
 const CartPage = () => {
   const cart = useSelector((states) => states.cart);
-  console.log(cart);
 
   const totalPrice = cart?.reduce((acc, cv) => {
     const subtotal = cv.quantity * cv.product.price;
@@ -30,7 +29,7 @@ const CartPage = () => {
         </div>
       ) : (
         <div className="flex h-[71%] w-4/5 flex-col place-content-center items-center text-center font-serif text-2xl text-stone-700">
-          <h4>No has agregados productos a este carrito todavía ☹️</h4>
+          <h4>You haven't added any products to this cart yet ☹️</h4>
         </div>
       )}
       <footer className="relative bottom-0 z-20 flex h-[20%] max-h-[90px] w-4/5 flex-col items-center justify-center gap-2 bg-white font-serif mm:text-lg">

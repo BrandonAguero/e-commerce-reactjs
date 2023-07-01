@@ -23,7 +23,6 @@ const usePurchases = () => {
     axios
       .post(url, null, getConfigAuth())
       .then((res) => {
-        console.log(res.data);
         dispatch(setCartG([]));
       })
       .catch((err) => console.error(err));
