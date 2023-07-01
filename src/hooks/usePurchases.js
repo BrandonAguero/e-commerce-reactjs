@@ -14,7 +14,7 @@ const usePurchases = () => {
     axios
       .get(url, getConfigAuth())
       .then((res) => {
-        setPurchases(res.data);
+        setPurchases(res.data.reverse());
       })
       .catch((err) => console.error(err));
   };

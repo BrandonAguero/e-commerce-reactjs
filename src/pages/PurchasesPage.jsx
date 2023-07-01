@@ -20,7 +20,7 @@ const PurchasesPage = () => {
         My purchases
       </h2>
       <div className="grid w-4/5 max-w-[650px] auto-rows-max grid-cols-1 grid-rows-6 justify-items-center gap-y-4 tp:max-w-[1000px] tp:gap-y-8">
-        {purchases?.map((product) => (
+        {purchases?.reverse().map((product) => (
           <PurchaseCard key={product.id} product={product} />
         ))}
       </div>
