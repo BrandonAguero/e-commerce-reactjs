@@ -57,7 +57,7 @@ const ProductInfo = ({ product }) => {
                 className="border-y-2 border-l-2 border-r-2 p-2"
                 onClick={handleAdd}
               >
-                <i class="bx bx-plus"></i>
+                <i className="bx bx-plus"></i>
               </button>
             </div>
           </li>

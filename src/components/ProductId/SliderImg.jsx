@@ -21,7 +21,12 @@ const SliderImg = ({ product }) => {
           height: "1.8rem",
           justifyContent: "center",
           alignItems: "center",
-          top: window.innerWidth > 992 ? "12rem" : "6rem",
+          top:
+            window.innerWidth >= 600 && window.innerWidth < 992
+              ? "8rem"
+              : window.innerWidth >= 992
+              ? "12rem"
+              : "6rem",
         }}
       ></div>
     );
@@ -74,7 +79,9 @@ const SliderImg = ({ product }) => {
         }}
       >
         {dots.map((dot, index) => (
-          <li key={index}>{dot}</li>
+          <li key={index}>
+            <button>{dot}</button>
+          </li>
         ))}
       </ul>
     ),
@@ -82,13 +89,13 @@ const SliderImg = ({ product }) => {
 
   return (
     <Slider
-      className="m-auto flex h-[20rem] w-[90%] flex-col gap-4 tp:h-[45rem] tp:w-1/2"
+      className="m-auto flex h-[14rem] w-[90%] flex-col gap-4 ml:h-[25rem] tp:h-[45rem] tp:w-1/2"
       {...settings}
     >
       {images?.map((image, index) => (
         <figure key={index}>
           <img
-            className="m-auto h-44 w-44 object-contain tp:h-96  tp:w-96"
+            className="m-auto h-44 w-44 object-contain ml:h-72 ml:w-72 tp:h-96 tp:w-96"
             src={image}
           />
         </figure>

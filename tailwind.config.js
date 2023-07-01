@@ -6,6 +6,7 @@ export default {
       screens: {
         ms: "360px",
         mm: "480px",
+        ml: "600px",
         mg: "768px",
         tp: "992px",
         tg: "1200px",
