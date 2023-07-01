@@ -18,7 +18,7 @@ const CartPage = () => {
   };
 
   return (
-    <div className="relative top-16 flex h-[85vh] w-screen max-w-[700px] flex-col items-center gap-2 mm:top-24 tp:top-20  tp:col-start-2 tp:col-end-8 tp:row-start-1 tp:row-end-7 tp:m-auto tp:gap-4">
+    <div className="relative top-16 m-auto flex h-[85vh] w-screen max-w-[700px] flex-col items-center gap-2 mm:top-28  tp:top-20 tp:col-start-2 tp:col-end-8 tp:row-start-1 tp:row-end-7 tp:m-auto tp:gap-4">
       <h2 className="w-4/5 text-xl font-bold text-stone-700 mm:text-2xl">
         Shopping Cart
       </h2>
