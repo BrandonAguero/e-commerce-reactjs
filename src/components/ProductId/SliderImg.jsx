@@ -68,7 +68,7 @@ const SliderImg = ({ product }) => {
     nextArrow: <Arrow />,
     beforeChange: (current, next) => setActiveSlide(next),
     appendDots: (dots) => (
-      <ul
+      <div
         style={{
           listStyle: "none",
           justifyContent: "center",
@@ -79,11 +79,9 @@ const SliderImg = ({ product }) => {
         }}
       >
         {dots.map((dot, index) => (
-          <li key={index}>
-            <button>{dot}</button>
-          </li>
+          <div key={index}>{dot}</div>
         ))}
-      </ul>
+      </div>
     ),
   };
 
