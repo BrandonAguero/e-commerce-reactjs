@@ -1,11 +1,34 @@
 import { useDispatch } from "react-redux";
-import { deleteCartThunk } from "../../store/slice/cart.slice.js";
+import {
+  deleteCartThunk,
+  updateCartThunk,
+} from "../../store/slice/cart.slice.js";
+import { useState } from "react";
 
 const CartElement = ({ product }) => {
   const dispatch = useDispatch();
 
   const handleDelete = () => {
     dispatch(deleteCartThunk(product.id));
+  };
+  const [quantity, setQuantity] = useState(1);
+
+  console.log(product);
+
+  const handleAdd = () => {
+    setQuantity((state) => state + 1);
+    const setQuantityProduct = product.quantity + 1;
+    dispatch(updateCartThunk(product.id, { quantity: setQuantityProduct }));
+  };
+
+  const handleMinus = () => {
+    setQuantity((state) => {
+      if (state > 1) return state - 1;
+      return state;
+    });
+    const setQuantityProduct = product.quantity - 1;
+
+    dispatch(updateCartThunk(product.id, { quantity: setQuantityProduct }));
   };
 
   return (
@@ -20,9 +43,18 @@ const CartElement = ({ product }) => {
         <h3 className="font-semibold text-stone-600 mm:text-lg">
           {product.product.title}
         </h3>
-        <p>
-          <span>{product.quantity}</span> x <span>{product.product.price}</span>
-        </p>
+        <div className="flex mm:text-xl">
+          <button className="border-y-2 border-l-2 p-2" onClick={handleMinus}>
+            <i className="bx bx-minus"></i>
+          </button>
+          <div className="border-y-2 border-l-2 p-2">{quantity}</div>
+          <button
+            className="border-y-2 border-l-2 border-r-2 p-2"
+            onClick={handleAdd}
+          >
+            <i className="bx bx-plus"></i>
+          </button>
+        </div>
       </section>
       <section className="text-center">
         <button className="text-red-500 mm:text-lg" onClick={handleDelete}>

@@ -63,3 +63,15 @@ export const deleteCartThunk = (id) => (dispatch) => {
       console.error(err);
     });
 };
+
+export const updateCartThunk = (id, data) => (dispatch) => {
+  const url = `${baseUrl}/${id}`;
+  axios
+    .put(url, data, getConfigAuth())
+    .then((res) => {
+      console.log(res.data);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+};
