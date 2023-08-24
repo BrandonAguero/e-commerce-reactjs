@@ -32,7 +32,7 @@ const SliderImg = ({ product }) => {
     );
   };
 
-  const images = product?.images.map((image) => {
+  const images = product?.productImgs.map((image) => {
     return image.url;
   });
 

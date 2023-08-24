@@ -2,7 +2,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { postCartThunk } from "../../store/slice/cart.slice.js";
 import { useDispatch, useSelector } from "react-redux";
 import { setVerifyProductCartG } from "../../store/slice/verifyProductCart.slice.js";
-import { useState } from "react";
 
 const CardProduct = ({ product }) => {
   const navigate = useNavigate();
@@ -40,12 +39,12 @@ const CardProduct = ({ product }) => {
         <header className="group relative aspect-square border-b border-solid border-gray-400">
           <img
             className="m-auto h-[90%] w-[90%] object-contain opacity-100 transition-opacity duration-700 group-hover:opacity-0"
-            src={product.images[0].url}
+            src={product?.productImgs[0].url}
             alt=""
           />
           <img
             className="absolute top-0 h-full w-full object-contain opacity-0 transition-opacity duration-700 group-hover:opacity-100  "
-            src={product.images[1].url}
+            src={product?.productImgs[0].url}
             alt=""
           />
         </header>
