@@ -3,13 +3,13 @@ import useFetch from "../../hooks/useFetch.js";
 import CardProduct from "../Home/CardProduct.jsx";
 
 const SimilarProducts = ({ product }) => {
-  const baseUrl = "https://e-commerce-api-v2.academlo.tech/api/v1";
+  const baseUrl = import.meta.env.VITE_REACT_APP_URL;
 
   const [productByCategory, getProductByCategory] = useFetch(baseUrl);
 
   useEffect(() => {
     if (product) {
-      getProductByCategory(`/products?categoryId=${product.category.id}`);
+      getProductByCategory(`/products?category=${product.category.id}`);
     }
   }, [product]);
 

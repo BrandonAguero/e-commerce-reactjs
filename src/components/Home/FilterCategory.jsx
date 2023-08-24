@@ -4,7 +4,7 @@ import { getProductsThunk } from "../../store/slice/products.slice.js";
 import { useDispatch } from "react-redux";
 
 const FilterCategory = () => {
-  const baseUrl = "https://e-commerce-api-v2.academlo.tech/api/v1";
+  const baseUrl = import.meta.env.VITE_REACT_APP_URL;
   const [categories, getAllCategories] = useFetch(baseUrl);
   const dispatch = useDispatch();
   const [rotateArrow, setRotateArrow] = useState("rotate-0");
@@ -26,7 +26,7 @@ const FilterCategory = () => {
 
   const handleFilterCategory = (id) => {
     if (id) {
-      const url = `https://e-commerce-api-v2.academlo.tech/api/v1/products?categoryId=${id}`;
+      const url = `${baseUrl}/products?category=${id}`;
       dispatch(getProductsThunk(url));
     } else {
       dispatch(getProductsThunk());
