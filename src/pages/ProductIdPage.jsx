@@ -8,7 +8,7 @@ import SliderImg from "../components/ProductId/SliderImg.jsx";
 const ProductIdPage = () => {
   const { id } = useParams();
 
-  const baseUrl = "https://e-commerce-api-v2.academlo.tech/api/v1";
+  const baseUrl = import.meta.env.VITE_REACT_APP_URL;
   const [product, getProductById] = useFetch(baseUrl);
 
   useEffect(() => {

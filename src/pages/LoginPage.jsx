@@ -9,7 +9,8 @@ const LoginPage = () => {
   const { loginUser } = useAuth();
 
   const onSubmit = (data) => {
-    const url = "https://e-commerce-api-v2.academlo.tech/api/v1/users/login";
+    const mainUrl = import.meta.env.VITE_REACT_APP_URL;
+    const url = `${mainUrl}/users/login`;
     loginUser(url, data);
     const user = localStorage.getItem("user");
     if (user) {
@@ -81,7 +82,7 @@ const LoginPage = () => {
           </form>
           <footer className="flex w-3/4 max-w-[410px] flex-col">
             <h4 className="font-serif text-sm mm:text-base">
-              Don't have an account?{" "}
+              Don't have an account?
               <Link className="text-blue-400 hover:text-lg" to="/register">
                 Sign Up
               </Link>

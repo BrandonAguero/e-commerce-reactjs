@@ -9,7 +9,7 @@ const RegisterPage = () => {
   const { createUser } = useAuth();
 
   const onSubmit = (data) => {
-    const url = "https://e-commerce-api-v2.academlo.tech/api/v1";
+    const url = import.meta.env.VITE_REACT_APP_URL;
     createUser(url, data);
     reset({
       firstName: "",
