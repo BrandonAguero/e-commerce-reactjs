@@ -8,7 +8,8 @@ const usePurchases = () => {
   const [purchases, setPurchases] = useState();
   const dispatch = useDispatch();
 
-  const url = "https://e-commerce-api-v2.academlo.tech/api/v1/purchases";
+  const mainUrl = import.meta.env.VITE_REACT_APP_URL;
+  const url = `${mainUrl}/purchase`;
 
   const getAllPurchases = () => {
     axios
