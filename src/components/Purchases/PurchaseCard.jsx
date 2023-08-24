@@ -17,7 +17,7 @@ const PurchaseCard = ({ product }) => {
     >
       <img
         className="h-16 w-16 object-contain"
-        src={product.product.images[0].url}
+        src={product.product.productImgs[0].url}
       />
       <h3 className="col-start-2 col-end-5 text-sm font-semibold tp:text-lg">
         {product.product.title}

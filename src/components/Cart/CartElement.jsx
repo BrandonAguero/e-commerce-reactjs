@@ -13,8 +13,6 @@ const CartElement = ({ product }) => {
   };
   const [quantity, setQuantity] = useState(1);
 
-  console.log(product);
-
   const handleAdd = () => {
     setQuantity((state) => state + 1);
     const setQuantityProduct = product.quantity + 1;
@@ -36,7 +34,7 @@ const CartElement = ({ product }) => {
       <header className="col-start-1 col-end-2 row-start-1 row-end-2">
         <img
           className="h-20 w-20 object-contain"
-          src={product.product.images[0].url}
+          src={product.product.productImgs[0].url}
         />
       </header>
       <section className="col-start-2 col-end-4 row-start-1 row-end-2">
