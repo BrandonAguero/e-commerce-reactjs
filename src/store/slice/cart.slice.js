@@ -20,7 +20,9 @@ export const { setCartG, addProductCartG, deleteProductCartG } =
 
 export default cartSlice.reducer;
 
-const baseUrl = "https://e-commerce-api-v2.academlo.tech/api/v1/cart";
+const mainUrl = import.meta.env.VITE_REACT_APP_URL;
+
+const baseUrl = `${mainUrl}/cart`;
 
 export const getCartThunk = () => (dispatch) => {
   axios

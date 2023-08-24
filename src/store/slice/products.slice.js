@@ -13,7 +13,8 @@ export const { setProductsG } = productsSlice.actions;
 
 export default productsSlice.reducer;
 
-const defaultUrl = "https://e-commerce-api-v2.academlo.tech/api/v1/products";
+const mainUrl = import.meta.env.VITE_REACT_APP_URL;
+const defaultUrl = `${mainUrl}/products`;
 
 export const getProductsThunk =
   (url = defaultUrl) =>
